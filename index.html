@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SinoCan Environmental | SAGD Water Treatment Consulting & Design</title>
+  <meta name="description" content="SinoCan Environmental provides industrial water treatment consulting and design for Alberta SAGD projects, including produced water, boiler feed, reuse, and disposal systems.">
+  <link rel="canonical" href="https://sinocan-env.com/">
+  <style>
+    :root {
+      --ink: #17211f;
+      --muted: #5d6b68;
+      --line: #d8e2df;
+      --field: #f4f8f7;
+      --paper: #fbfcfb;
+      --moss: #52796f;
+      --pine: #1f4d45;
+      --water: #2a6f97;
+      --clay: #c77732;
+      --mist: #e8f1ef;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(23, 33, 31, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(251, 252, 251, .92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--pine);
+      color: var(--white);
+    }
+
+    .brand-mark svg { width: 24px; height: 24px; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: .95rem;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 750;
+      line-height: 1;
+    }
+
+    .button.primary {
+      background: var(--pine);
+      color: var(--white);
+      box-shadow: 0 12px 26px rgba(31, 77, 69, .22);
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--pine);
+    }
+
+    .button svg { width: 18px; height: 18px; }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(90deg, rgba(251, 252, 251, .97), rgba(251, 252, 251, .72) 55%, rgba(251, 252, 251, .2)),
+        radial-gradient(circle at 86% 18%, rgba(42, 111, 151, .18), transparent 32%),
+        linear-gradient(135deg, #eef6f4 0%, #f7fbfa 44%, #e7eee9 100%);
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 48px 0 44px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
+      gap: clamp(32px, 6vw, 76px);
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--pine);
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--clay);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 22px;
+      font-size: clamp(2.75rem, 6vw, 6.7rem);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      line-height: 1.65;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      max-width: 760px;
+    }
+
+    .stat {
+      border-left: 3px solid var(--clay);
+      padding-left: 15px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--pine);
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .field-visual {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      align-items: center;
+    }
+
+    .terrain {
+      position: relative;
+      min-height: 480px;
+      border: 1px solid rgba(255, 255, 255, .7);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(31, 77, 69, .84), rgba(42, 111, 151, .68)),
+        url("data:image/svg+xml,%3Csvg width='760' height='680' viewBox='0 0 760 680' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23eaf3ee'/%3E%3Cstop offset='1' stop-color='%239bb9b0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='760' height='680' fill='url(%23g)'/%3E%3Cpath d='M-20 522 C140 430 220 496 370 412 C520 328 610 360 800 260' fill='none' stroke='%232a6f97' stroke-width='44' stroke-linecap='round' opacity='.85'/%3E%3Cpath d='M-40 160 C120 110 185 170 310 114 C470 42 575 100 802 42' fill='none' stroke='%23ffffff' stroke-width='2' opacity='.48'/%3E%3Cpath d='M-20 206 C158 154 205 226 354 166 C512 100 610 142 796 98' fill='none' stroke='%23ffffff' stroke-width='2' opacity='.42'/%3E%3Cpath d='M-20 258 C150 220 230 286 376 226 C530 164 610 204 792 168' fill='none' stroke='%23ffffff' stroke-width='2' opacity='.38'/%3E%3Cpath d='M-20 314 C150 280 230 342 376 292 C530 238 610 270 792 230' fill='none' stroke='%23ffffff' stroke-width='2' opacity='.34'/%3E%3Cpath d='M80 392 L216 324 L328 352 L470 284 L628 310' fill='none' stroke='%23c77732' stroke-width='7' stroke-linecap='round' stroke-linejoin='round' opacity='.88'/%3E%3Ccircle cx='216' cy='324' r='16' fill='%23c77732'/%3E%3Ccircle cx='470' cy='284' r='16' fill='%23c77732'/%3E%3Ccircle cx='628' cy='310' r='16' fill='%23c77732'/%3E%3Cpath d='M96 84 h180 v92 H96z' fill='%23ffffff' opacity='.82'/%3E%3Cpath d='M116 112 h118 M116 138 h84 M116 162 h132' stroke='%2317211f' stroke-width='7' opacity='.52'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .terrain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 0 68%, rgba(12, 29, 28, .52)),
+        linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, .08) 1px, transparent 1px);
+      background-size: auto, 52px 52px, 52px 52px;
+    }
+
+    .site-note {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: center;
+      color: var(--white);
+    }
+
+    .site-note svg {
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .18);
+      backdrop-filter: blur(14px);
+    }
+
+    .site-note strong { display: block; font-size: 1.05rem; }
+    .site-note span { color: rgba(255, 255, 255, .78); font-size: .9rem; }
+
+    .section {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 88px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(280px, .55fr);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .lead {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 1.04rem;
+      margin-bottom: 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card,
+    .project-card,
+    .insight-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .service-card {
+      padding: 28px;
+      min-height: 286px;
+      display: grid;
+      align-content: space-between;
+      gap: 28px;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      color: var(--pine);
+    }
+
+    .service-card h3,
+    .project-card h3,
+    .insight-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+    }
+
+    .service-card p,
+    .project-card p,
+    .insight-card p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .service-card a {
+      color: var(--pine);
+      font-weight: 800;
+    }
+
+    .band {
+      background: var(--mist);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-image {
+      min-height: 250px;
+      background:
+        linear-gradient(135deg, rgba(23, 33, 31, .2), rgba(23, 33, 31, .05)),
+        var(--visual);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .visual-water {
+      --visual:
+        url("data:image/svg+xml,%3Csvg width='800' height='420' viewBox='0 0 800 420' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='800' height='420' fill='%23dcefea'/%3E%3Cpath d='M0 288 C120 238 230 316 370 268 C530 214 640 244 800 200 V420 H0z' fill='%232a6f97'/%3E%3Cpath d='M0 322 C150 280 268 350 410 308 C540 270 662 306 800 252 V420 H0z' fill='%231f4d45' opacity='.75'/%3E%3Ccircle cx='650' cy='92' r='46' fill='%23c77732' opacity='.85'/%3E%3Cpath d='M76 172 h220 v34 H76z M116 132 h128 v40 H116z M510 154 h150 v24 H510z' fill='%23ffffff' opacity='.9'/%3E%3Cpath d='M88 170 V90 M154 170 V72 M220 170 V110 M560 154 V94 M630 154 V76' stroke='%2352796f' stroke-width='12'/%3E%3C/svg%3E");
+    }
+
+    .visual-soil {
+      --visual:
+        url("data:image/svg+xml,%3Csvg width='800' height='420' viewBox='0 0 800 420' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='800' height='420' fill='%23eef6f4'/%3E%3Cpath d='M0 284 C116 250 190 278 306 232 C420 188 552 218 800 146 V420 H0z' fill='%2352796f'/%3E%3Cpath d='M0 330 C134 300 220 328 356 286 C488 244 612 270 800 224 V420 H0z' fill='%23c77732'/%3E%3Cpath d='M144 96 h60 v224 h-60z M520 80 h60 v260 h-60z' fill='%23ffffff' opacity='.92'/%3E%3Cpath d='M144 142 h60 M144 190 h60 M144 238 h60 M520 128 h60 M520 176 h60 M520 224 h60' stroke='%2317211f' stroke-width='8' opacity='.35'/%3E%3Ccircle cx='448' cy='122' r='36' fill='%232a6f97' opacity='.8'/%3E%3C/svg%3E");
+    }
+
+    .project-body {
+      padding: 26px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: var(--field);
+      color: var(--pine);
+      font-size: .78rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(34px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-item:last-child { border-bottom: 0; }
+
+    .number {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--pine);
+      color: var(--white);
+      font-weight: 850;
+    }
+
+    .process-item h3 {
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+
+    .process-item p {
+      color: var(--muted);
+      line-height: 1.58;
+      margin-bottom: 0;
+    }
+
+    .quote {
+      padding: 34px;
+      border-radius: 8px;
+      background: var(--pine);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .quote p {
+      font-size: clamp(1.35rem, 3vw, 2.15rem);
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    .quote span {
+      color: rgba(255, 255, 255, .76);
+      line-height: 1.5;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .insight-card {
+      padding: 26px;
+    }
+
+    .insight-card time {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--water);
+      font-size: .84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .contact {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .contact .section {
+      padding-bottom: 64px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr minmax(320px, 440px);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .contact p { color: rgba(255, 255, 255, .72); }
+
+    .contact-panel {
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .16);
+      padding: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: rgba(255, 255, 255, .82);
+      font-size: .88rem;
+      font-weight: 750;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      min-height: 44px;
+      margin-bottom: 14px;
+      padding: 11px 12px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .1);
+      color: var(--white);
+      font: inherit;
+    }
+
+    textarea { min-height: 118px; resize: vertical; }
+    select option { color: var(--ink); }
+
+    .footer {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 24px 0 34px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: rgba(255, 255, 255, .58);
+      border-top: 1px solid rgba(255, 255, 255, .14);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 920px) {
+      .nav { min-height: auto; padding: 18px 0; align-items: flex-start; }
+      .nav-links { display: none; }
+      .hero { min-height: auto; }
+      .hero-inner,
+      .section-head,
+      .project-grid,
+      .split,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .field-visual { min-height: 420px; }
+      .terrain { min-height: 390px; }
+      .services-grid,
+      .insight-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav,
+      .section,
+      .hero-inner,
+      .footer {
+        width: min(100% - 28px, 1180px);
+      }
+      .brand span { max-width: 180px; }
+      h1 { font-size: clamp(2.55rem, 16vw, 4rem); }
+      .trust-row,
+      .services-grid,
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-inner { padding-top: 34px; }
+      .field-visual { min-height: 320px; }
+      .terrain { min-height: 310px; }
+      .section { padding: 64px 0; }
+      .project-image { min-height: 190px; }
+      .footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 17c6.2.3 11.2-2.8 15-9.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 8c4.8-.9 8.5.7 11 4.8C12.8 13.9 9.2 12.3 7 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>SinoCan Environmental</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#approach">Approach</a>
+        <a href="#insights">Insights</a>
+      </div>
+      <a class="button primary" href="#contact">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Start a Project
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Industrial water treatment consulting</p>
+          <h1>Water system design for Alberta SAGD operations.</h1>
+          <p class="hero-copy">SinoCan Environmental helps SAGD and heavy oil teams plan, design, troubleshoot, and optimize produced water treatment, boiler feed, recycle, disposal, and utility water systems.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 5h9v9M17 5 6 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Request Consultation
+            </a>
+            <a class="button secondary" href="#projects">View Projects</a>
+          </div>
+          <div class="trust-row" aria-label="Company metrics">
+            <div class="stat">
+              <strong>240+</strong>
+              <span>water system studies completed</span>
+            </div>
+            <div class="stat">
+              <strong>31</strong>
+              <span>SAGD and thermal projects supported</span>
+            </div>
+            <div class="stat">
+              <strong>18 yrs</strong>
+              <span>average senior water treatment experience</span>
+            </div>
+          </div>
+        </div>
+        <div class="field-visual" aria-label="SAGD water treatment system visual">
+          <div class="terrain">
+            <div class="site-note">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-5.1 7-11a7 7 0 1 0-14 0c0 5.9 7 11 7 11Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M9.5 10.5 11.5 13l3.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <strong>SAGD water design support</strong>
+                <span>Process review, equipment sizing, PFDs, P&IDs, datasheets, and operating support.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-head">
+        <h2>Services built around SAGD water systems.</h2>
+        <p>Use these service blocks to present SinoCan's industrial water treatment consulting, process design, and operations support for Alberta thermal projects.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 19h16M5 15c4-5 10-5 14 0M7 11c3-3.4 7-3.4 10 0M10 7c1.4-1.2 2.6-1.2 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Produced Water Treatment</h3>
+            <p>Integrated system review and design for warm lime softening, filtration, evaporators, crystallizers, recycle, and disposal trains.</p>
+          </div>
+          <a href="#contact">Discuss water scope</a>
+        </article>
+        <article class="service-card">
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 14c3.2-3.2 6.4-3.2 9.6 0s6.4 3.2 9.6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 8c2.4-2.4 4.8-2.4 7.2 0s4.8 2.4 7.2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+              <path d="M8 19h8M12 11v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Deoiling System Design</h3>
+            <p>Free-water knockout, skim tanks, IGF/induced gas flotation, hydrocyclones, nutshell filters, chemical programs, and oil-in-water troubleshooting.</p>
+          </div>
+          <a href="#contact">Review deoiling</a>
+        </article>
+        <article class="service-card">
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3v18M5 8h14M7 13h10M9 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h3>Boiler Feed & OTSG Support</h3>
+            <p>Boiler feedwater quality targets, ion exchange, membrane systems, chemical dosing, blowdown handling, and reliability reviews.</p>
+          </div>
+          <a href="#contact">Review design basis</a>
+        </article>
+        <article class="service-card">
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 16h7l3-8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 20h14M15 12h4v4h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 10c0-2 1.5-3.5 4-5 2.5 1.5 4 3 4 5a4 4 0 0 1-8 0Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <h3>Disposal Water Treatment & Pumping</h3>
+            <p>Treatment, polishing, filtration, disposal water quality control, injection pump sizing, hydraulics, pressure protection, and reliability reviews.</p>
+          </div>
+          <a href="#contact">Plan disposal system</a>
+        </article>
+        <article class="service-card">
+          <div>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 19c6-1 10-5 14-13M6 8c4.5-.8 7.8.6 10 4.2C11.2 13 8.2 11.6 6 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <h3>Design Packages & Troubleshooting</h3>
+            <p>Concept studies, design basis memoranda, PFDs, P&IDs, equipment datasheets, vendor reviews, commissioning, and debottlenecking.</p>
+          </div>
+          <a href="#contact">Optimize system</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="band" id="projects">
+      <div class="section">
+        <div class="section-head">
+          <h2>Selected SAGD water project examples.</h2>
+          <p>Replace these examples with actual studies, design deliverables, vendor packages, performance improvements, and operations support outcomes.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-image visual-water" role="img" aria-label="Industrial water treatment facility visual"></div>
+            <div class="project-body">
+              <span class="tag">SAGD deoiling</span>
+              <h3>Deoiling train review and debottlenecking</h3>
+              <p>Reviewed oil-in-water trends, emulsion behavior, chemical dosing, vessel retention, flotation performance, and downstream filter loading to improve recycle water quality.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image visual-water" role="img" aria-label="Disposal water treatment and pumping visual"></div>
+            <div class="project-body">
+              <span class="tag">Disposal water pumping</span>
+              <h3>Disposal treatment and injection pump review</h3>
+              <p>Evaluated disposal water quality, solids control, pump hydraulics, injection pressure limits, redundancy, and operating controls for reliable water handling.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image visual-soil" role="img" aria-label="Boiler feedwater treatment design visual"></div>
+            <div class="project-body">
+              <span class="tag">Boiler feedwater</span>
+              <h3>OTSG feedwater treatment troubleshooting</h3>
+              <p>Assessed softening, filtration, chemical dosing, and blowdown constraints to improve steam generation reliability and reduce upset frequency.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Our approach</p>
+          <h2>Clear process design, practical operating decisions.</h2>
+          <p class="lead">This section can anchor SinoCan's value: bridging water chemistry, equipment design, Alberta SAGD operating realities, and field troubleshooting.</p>
+        </div>
+        <div class="process-list">
+          <div class="process-item">
+            <span class="number">01</span>
+            <div>
+              <h3>Define water quality targets early</h3>
+              <p>We align produced water chemistry, steam generation requirements, recycle rates, disposal constraints, and operating limits before design decisions are locked.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span class="number">02</span>
+            <div>
+              <h3>Model the complete water balance</h3>
+              <p>Mass balance, heat balance, chemical demand, blowdown, make-up water, and disposal assumptions are tied together so the system can be operated.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <span class="number">03</span>
+            <div>
+              <h3>Deliver design-ready packages</h3>
+              <p>Design basis, PFDs, P&IDs, equipment lists, datasheets, and vendor review notes are prepared for engineering teams and operations stakeholders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="quote">
+        <p>"Reliable SAGD water systems depend on practical chemistry, maintainable equipment, and design choices that operators can live with."</p>
+        <span>Use this block for a principal quote, client endorsement, or SinoCan positioning statement.</span>
+      </div>
+    </section>
+
+    <section class="section" id="insights">
+      <div class="section-head">
+        <h2>Latest thinking.</h2>
+        <p>Publish short updates that help SAGD teams understand water treatment choices, operating risks, and design planning decisions.</p>
+      </div>
+      <div class="insight-grid">
+        <article class="insight-card">
+          <time datetime="2026-07-05">Design note</time>
+          <h3>What to confirm before sizing a deoiling train</h3>
+          <p>Oil loading, emulsion stability, solids, temperature, residence time, chemical strategy, and downstream treatment limits all shape equipment selection.</p>
+        </article>
+        <article class="insight-card">
+          <time datetime="2026-07-05">Design brief</time>
+          <h3>Boiler feed design beyond nameplate flow</h3>
+          <p>Reliability depends on water quality excursions, chemical control, redundancy, maintenance access, and turndown behavior.</p>
+        </article>
+        <article class="insight-card">
+          <time datetime="2026-07-05">Compliance</time>
+          <h3>Disposal pumping is a system design problem</h3>
+          <p>Treatment quality, solids carryover, pump curves, injection pressure, controls, and redundancy must be reviewed together.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="section">
+        <div class="contact-grid">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Bring us in before the water system limits production.</h2>
+            <p class="lead">Add your office details, proposal intake language, and Alberta project experience here.</p>
+          </div>
+          <form class="contact-panel">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Jane Smith">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@sinocan-env.com">
+            <label for="service">Project type</label>
+            <select id="service" name="service">
+              <option>SAGD produced water treatment</option>
+              <option>Deoiling system design / troubleshooting</option>
+              <option>Disposal water treatment / pumping</option>
+              <option>Boiler feed / OTSG support</option>
+              <option>Water balance and process study</option>
+              <option>Design package / vendor review</option>
+              <option>Operations troubleshooting</option>
+            </select>
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="Tell us about the SAGD project, water chemistry, capacity, operating issue, and timeline."></textarea>
+            <button class="button primary" type="submit">Send Inquiry</button>
+          </form>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>SinoCan Environmental</span>
+        <span>sinocan-env.com | SAGD water treatment consulting and design in Alberta, Canada</span>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
